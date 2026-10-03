@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   1. VARIABLES & DESIGN SYSTEM
+   ========================================== */
+:root {
+    --primary-color: #0ea5e9;
+    --primary-hover: #0284c7;
+    --primary-light: #e0f2fe;
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    
+    --bg-main: #f8fafc;
+    --sidebar-bg: #0f172a;
+    --sidebar-hover: #1e293b;
+    --card-bg: #ffffff;
+    
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --text-light: #f8fafc;
+    
+    --border-color: #e2e8f0;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   2. GLOBAL STYLES
+   ========================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ==========================================
+   3. SIDEBAR NAVIGATION
+   ========================================== */
+.sidebar {
+    min-height: 100vh;
+    background: var(--sidebar-bg);
+    color: var(--text-light);
+    padding: 1.25rem 1rem;
+    transition: var(--transition);
+}
+
+.sidebar .brand-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem 1.5rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1rem;
+}
+
+.sidebar a {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.sidebar a:hover {
+    background: var(--sidebar-hover);
+    color: #ffffff;
+    transform: translateX(-3px);
+}
+
+.sidebar a.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.sidebar a i {
+    font-size: 1.15rem;
+}
+
+/* ==========================================
+   4. CARDS & UI CONTAINERS
+   ========================================== */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Stats Cards Hover Effect */
+.stat-card {
+    transition: var(--transition);
+}
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   5. FORMS & INPUT CONTROLS
+   ========================================== */
+.form-control, .form-select {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background-color: #ffffff;
+    transition: var(--transition);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-light);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   6. TABLES
+   ========================================== */
+.table {
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.85rem 1rem;
+    border-bottom-color: var(--border-color);
+}
+
+.table thead th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--text-muted);
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* ==========================================
+   7. BUTTONS & BADGES
+   ========================================== */
+.btn {
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.25);
+}
+
+/* Soft Badges */
+.badge {
+    padding: 0.4em 0.75em;
+    font-weight: 600;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.badge.bg-success {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.badge.bg-danger {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.badge.bg-warning {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary-light) !important;
+    color: #075985 !important;
+}
+
+.badge.bg-secondary {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+/* ==========================================
+   8. PRINT STYLES
+   ========================================== */
+@media print {
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    
+    .no-print, .sidebar, .btn, nav, footer {
+        display: none !important;
+    }
+    
+    .main-content, .container-fluid, .container {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    
+    .table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+    }
+    
+    .table th, .table td {
+        border: 1px solid #cbd5e1 !important;
+        padding: 8px !important;
+    }
+}
